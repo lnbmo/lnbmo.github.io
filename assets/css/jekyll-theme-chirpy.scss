@@ -1,0 +1,138 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* ===== Custom Styles ===== */
+
+/* --- Typography: better Chinese font stack --- */
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", "Source Sans Pro", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", Lato, sans-serif;
+}
+
+/* --- Sidebar enhancements --- */
+#sidebar {
+  .site-title {
+    letter-spacing: 1px;
+  }
+
+  .site-subtitle {
+    font-style: italic;
+    opacity: 0.85;
+  }
+
+  #avatar {
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* --- Post card hover effect --- */
+.card-wrapper .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* --- Post content readability --- */
+.post-content {
+  line-height: 1.85;
+  letter-spacing: 0.3px;
+
+  p {
+    margin-bottom: 1.2rem;
+  }
+
+  h2 {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--main-border-color);
+  }
+}
+
+/* --- Code block styling --- */
+.highlight {
+  border-radius: var(--radius-lg);
+
+  code {
+    font-family: "JetBrains Mono", "Fira Code", "Source Code Pro",
+      Consolas, monospace;
+    letter-spacing: -0.2px;
+  }
+}
+
+/* --- Tag chip style --- */
+.post-tags {
+  a {
+    border-radius: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+/* --- Pagination --- */
+.pagination .page-item .page-link {
+  border-radius: 0.625rem;
+  min-width: 2.2rem;
+  transition: all 0.2s ease;
+}
+
+/* --- Back to top button --- */
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* --- Tip/Info prompt boxes --- */
+blockquote.prompt-tip {
+  border-radius: var(--radius-lg);
+}
+
+blockquote.prompt-info {
+  border-radius: var(--radius-lg);
+}
+
+/* --- Footer subtle styling --- */
+footer {
+  a {
+    transition: color 0.2s ease;
+  }
+}
+
+/* --- Smooth page transitions --- */
+main {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 576px) {
+  .post-content {
+    line-height: 1.7;
+  }
+}
